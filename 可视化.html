@@ -91,7 +91,7 @@
         </a>
     </div>
 
-    <div class="right-info col-sm-12 col-md-5 col-lg-4" style="width: 44%;height: 600px;float: left; top: 60px; margin-left: 5%;" data-v-5ce98c5c="">
+    <div class="right-info col-sm-12 col-md-5 col-lg-4" style="width: 44%;height: 1200px;float: left; top: 60px; margin-left: 5%;" data-v-5ce98c5c="">
         <div class="right-info-cty fontZoom">
             <div>
                 <table class="w-100" >
@@ -225,6 +225,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/echarts.min.js"></script>
 
+
     <div id="pieChart" style="width: 44%; height: 400px; float:right; margin-right: 5%;top: 60px;"></div>
 
     <script>
@@ -277,6 +278,8 @@
         // 使用刚指定的配置项和数据显示图表
         myChart.setOption(option);
     </script>
+
+
     <div id="barChart" style="width: 44%; height: 400px; float:right;margin-right: 5%;top: 60px;"></div>
 
     <script>
@@ -332,6 +335,51 @@
         // 使用刚指定的配置项和数据显示图表
         myChart.setOption(option);
     </script>
+    <div id="radarChart" style="width: 44%; height: 400px; float:right;margin-right: 5%;top: 60px;"></div>
+
+    <script>
+        // 初始化 ECharts 实例
+        var myChart = echarts.init(document.getElementById('radarChart'));
+
+        // 定义雷达图的指标名称
+        var indicatorData = [
+            { name: '四季花卉', max: 1200 },
+            { name: '春季花卉', max: 1200 },
+            { name: '夏季花卉', max: 1200 },
+            { name: '秋季花卉', max: 1200 },
+            { name: '冬季花卉', max: 1200 },
+            { name: '喜阴花卉', max: 1200 },
+            { name: '喜阳花卉', max: 1200 }
+        ];
+
+        // 定义数据
+        var data = [
+            {
+                value: [212, 840, 1104, 500, 164, 315, 1176],
+                name: '花卉数据'
+            }
+        ];
+
+        // 配置图表选项
+        var option = {
+            title: {
+                text: '花卉雷达图'
+            },
+            tooltip: {},
+            radar: {
+                indicator: indicatorData, // 设置雷达图的指标
+                radius: '60%' // 设置雷达图的大小
+            },
+            series: [{
+                type: 'radar',
+                data: data
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+    </script>
+
 
 </div>
 
